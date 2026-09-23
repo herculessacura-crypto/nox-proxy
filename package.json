@@ -1,0 +1,17 @@
+{
+  "name": "nox-proxy",
+  "version": "1.0.0",
+  "description": "Nox - Modern web proxy with UltraViolet + games",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "@titaniumnetwork-dev/ultraviolet": "^3.2.10",
+    "@tomphttp/bare-server-node": "^2.0.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
