@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nox</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <style>
+    :root {
+      --bg: #0f0b1a;
+      --bg-card: #1a1329;
+      --bg-hover: #251a3a;
+      --primary: #a855f7;
+      --primary-hover: #c084fc;
+      --text: #f3e8ff;
+      --text-muted: #a78bfa;
+      --border: #3b2a5a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .app { display: flex; min-height: 100vh; }
+    .sidebar {
+      width: 220px;
+      background: #160f24;
+      border-right: 1px solid var(--border);
+      padding: 24px 16px;
+      position: fixed;
+      height: 100vh;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: var(--primary-hover);
+    }
+    .nav-item {
+      display: block;
+      padding: 12px 14px;
+      border-radius: 10px;
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-bottom: 6px;
+    }
+    .nav-item.active, .nav-item:hover {
+      background: rgba(168, 85, 247, 0.15);
+      color: var(--primary-hover);
+    }
+    .main {
+      flex: 1;
+      margin-left: 220px;
+      padding: 40px 30px;
+    }
+    h1 { font-size: 32px; margin-bottom: 8px; }
+    .subtitle { color: var(--text-muted); margin-bottom: 30px; }
+    .search-box {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    #url-input {
+      flex: 1;
+      padding: 14px 18px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--text);
+      font-size: 16px;
+      outline: none;
+    }
+    #go-btn {
+      padding: 14px 28px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 40px;
+    }
+    .quick {
+      padding: 9px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text-muted);
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .feature-card:hover {
+      border-color: var(--primary);
+    }
+    .feature-icon { font-size: 32px; margin-bottom: 12px; }
+    @media (max-width: 700px) {
+      .sidebar { width: 60px; padding: 16px 8px; }
+      .logo span, .nav-item span:not(:first-child) { display: none; }
+      .main { margin-left: 60px; padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo">⚡ Nox</div>
+      <a href="/" class="nav-item active">🏠 Inicio</a>
+      <a href="/games.html" class="nav-item">🎮 Juegos</a>
+      <a href="/apps.html" class="nav-item">📱 Apps</a>
+      <a href="/settings.html" class="nav-item">⚙️ Ajustes</a>
+    </aside>
+
+    <main class="main">
+      <h1>Nox</h1>
+      <p class="subtitle">Proxy moderno + juegos</p>
+
+      <div class="search-box">
+        <input type="text" id="url-input" placeholder="Buscar o pegar una URL (ej: youtube.com)" />
+        <button id="go-btn">Ir</button>
+      </div>
+
+      <div class="quick-links">
+        <button class="quick" data-url="https://youtube.com">YouTube</button>
+        <button class="quick" data-url="https://discord.com/app">Discord</button>
+        <button class="quick" data-url="https://reddit.com">Reddit</button>
+        <button class="quick" data-url="https://spotify.com">Spotify</button>
+        <button class="quick" data-url="https://google.com">Google</button>
+      </div>
+
+      <div class="features">
+        <a href="/games.html" class="feature-card">
+          <div class="feature-icon">🎮</div>
+          <h3>Juegos HTML</h3>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:6px">Muchos juegos listos</p>
+        </a>
+        <a href="/apps.html" class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3>Apps</h3>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:6px">Acceso rápido</p>
+        </a>
+        <a href="/settings.html" class="feature-card">
+          <div class="feature-icon">⚙️</div>
+          <h3>Ajustes</h3>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:6px">Personaliza Nox</p>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function go(url) {
+      if (!url) return;
+      if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
+      window.open(url, '_blank');
+    }
+
+    document.getElementById('go-btn').onclick = () => {
+      go(document.getElementById('url-input').value.trim());
+    };
+
+    document.getElementById('url-input').onkeydown = (e) => {
+      if (e.key === 'Enter') go(document.getElementById('url-input').value.trim());
+    };
+
+    document.querySelectorAll('.quick').forEach(btn => {
+      btn.onclick = () => go(btn.dataset.url);
+    });
+  </script>
+</body>
+</html>
